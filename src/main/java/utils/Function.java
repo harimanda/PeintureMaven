@@ -24,8 +24,6 @@ public class Function {
     Statement stmt = null;
     String requete = "";
 
-
-
     public int insertToTable(Object o, String nomTable) throws Exception {
 
         c = con.connect();
@@ -141,6 +139,34 @@ public class Function {
         val = (couleur * 255)/100;
         return val;
     }
+      public int deleteFromTable(String nomTable,String idel,String idcol) throws Exception
+	{
+             
+            c = con.connect();
+            
+           
+           int status =0;
+			String requete = "DELETE FROM "+nomTable+" WHERE "+idcol+" = '"+idel+"'";
+			 System.out.println(requete);
+                      
+                        try {
+
+                                     stmt = c.createStatement(); 
+                                    stmt.executeUpdate(requete);
+                                    String comm = "commit";
+                                    stmt.executeUpdate(comm);
+                                         
+                            status = 1;
+                                    
+                                    System.out.println("execution reussie");  
+                                            //resultats.close();
+                            }
+                                    catch (Exception e)
+                                {
+                                            System.out.println(e);
+                            }
+			return status;
+	}
 
 
 }

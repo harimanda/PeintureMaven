@@ -42,7 +42,29 @@ public class FunctionTest {
     /**
      * Test of Execute method, of class Function.
      */
+  
+    
       @org.junit.Test
+    public void testInsertToTable() throws Exception {
+        System.out.println("insertToTable");
+        Colori o = new Colori();
+        o.setNom("Blanc taps");
+        o.setR("127");
+        o.setG("37");
+        o.setB("41");
+        String nomTable = "colori";
+        Function instance = new Function();
+        int expResult = 0;
+        int result = instance.insertToTable(o, nomTable);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+       // fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of find method, of class Function.
+     */
+        @org.junit.Test
     public void testFind() {
         System.out.println("find");
         String table = "colori";
@@ -72,46 +94,11 @@ public class FunctionTest {
         // TODO review the generated test code and remove the default call to fail.
        // fail("The test case is a prototype.");
     }
-      @org.junit.Test
-    public void testInsertToTable() throws Exception {
-        System.out.println("insertToTable");
-        Colori o = new Colori();
-        o.setNom("Kajo");
-        o.setR("126");
-        o.setG("30");
-        o.setB("44");
-        String nomTable = "colori";
-        Function instance = new Function();
-        int expResult = 0;
-        int result = instance.insertToTable(o, nomTable);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-       // fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of find method, of class Function.
-     */
-    
 
     /**
      * Test of updateToTable method, of class Function.
      */
-    @org.junit.Test
-    public void testUpdateToTable() throws Exception {
-        System.out.println("updateToTable");
-        Colori o = new Colori();
-        o.setNom("Kaho");
-        String nomTable = "colori";
-        String[] nomColFiltre = new String[]{"nom"};
-        String[][] filtre = new String[][]{{" = "},{"'Kaju'"}};
-        Function instance = new Function();
-        int expResult = 0;
-        int result = instance.updateToTable(o, nomTable, nomColFiltre, filtre);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
-    }
+   
 
     /**
      * Test of getPourcentage method, of class Function.
@@ -142,6 +129,37 @@ public class FunctionTest {
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
-    
+
+    /**
+     * Test of deleteFromTable method, of class Function.
+     */
+    @org.junit.Test
+    public void testDeleteFromTable() throws Exception {
+        System.out.println("deleteFromTable");
+        String nomTable = "colori";
+        String idel = "Blanc taps";
+        String idcol = "nom";
+        Function instance = new Function();
+        int expResult = 1;
+        int result = instance.deleteFromTable(nomTable, idel, idcol);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+       // fail("The test case is a prototype.");
+    }
+     @org.junit.Test
+    public void testUpdateToTable() throws Exception {
+        System.out.println("updateToTable");
+        Colori o = new Colori();
+        o.setNom("Blanc taps");
+        String nomTable = "colori";
+        String[] nomColFiltre = new String[]{"nom"};
+        String[][] filtre = new String[][]{{" = "},{"'Blanc taps'"}};
+        Function instance = new Function();
+        int expResult = 0;
+        int result = instance.updateToTable(o, nomTable, nomColFiltre, filtre);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
     
 }
